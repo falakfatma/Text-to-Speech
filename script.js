@@ -1,14 +1,15 @@
 let button = document.querySelector('.btn')
-let optionList = document.querySelector('select')
+let optionList = document.querySelector('#optionList')
 let textArea = document.querySelector('textarea')
-// console.log(textArea)
+console.log(textArea)
 let isSpeaking = true;
 let synth = speechSynthesis
+voices();
 function voices(){
   for(let voice of synth.getVoices() ){
     // console.log(voice)
-    let selected = voice.name === "Google US English"? "selected" : ""
-    let option = ` <option value="${voice.name}" ${selected}>${voice.name} ${voice.lang}</option>`
+    let selected = voice.name === "Google US English"? "selected" : "";
+    let option = ` <option value="${voice.name}" ${selected}>${voice.name} (${voice.lang})</option>`
     optionList.insertAdjacentHTML('beforeend',option)
   }
 }
@@ -18,14 +19,17 @@ function textToSpeech(text){
   for(let voice of synth.getVoices() ){
     if (voice.name === optionList.value){
       speak.voice = voice
+      // console.log(voice)
     }
   }
   synth.speak(speak)
 
 }
-button.addEventListener('click',()=>{
+button.addEventListener('click',(e)=>{
+  e.preventDefault()
   if(textArea.value !== ""){
     if(!synth.speaking){
+      // console.log(`speeking`)
     textToSpeech(textArea.value)
     }
     if(textArea.value.length > 80){   

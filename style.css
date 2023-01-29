@@ -4,16 +4,21 @@ html, body {
   background: linear-gradient( #2c4f7d,#17252b);
 }
 .container{
-  height: 100%;
-  width: 90%;
+/*   height: 60%; */
+  min-width: 50%;
+  background-color:whitesmoke ;
   margin: auto;
 }
 textarea{
-  font-size: larger;
-  font-family: cursive;
+  font-size: large;
+/*   font-family: cursive; */
+/*   display: block; */
       height: 7rem;
+  width: 70%;
+  margin-left: 1rem;
 }
 #h3{
+  
   text-align: center;
 }
 .heading{
@@ -25,10 +30,14 @@ textarea{
   border: 1px solid;
   border-radius: 1rem;
   color: white;
-  width: 5rem;
+  width: 15rem;
 text-align: center;
   margin: 1rem;
   padding: 1rem;
   font-size: large;
   
+}
+select  {
+  margin-top: 1rem;
+  margin-left: 1rem;
 }
